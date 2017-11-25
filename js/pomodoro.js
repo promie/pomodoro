@@ -1,6 +1,5 @@
 
 // Decrease/Increase Break functionality
-
 const breakLength = document.getElementById('breakSlice');
 let breakValue = parseInt(breakLength.textContent);
 
@@ -15,7 +14,6 @@ const increaseBreak = () =>{
 }
 
 // Decrease/Increase Session Length functionality
-
 const sessionLength = document.getElementById('sessionSlice');
 const mainSessionLength = document.getElementById('mainSessionSlice');
 let sessionValue = parseInt(sessionLength.textContent);
@@ -33,7 +31,13 @@ const increaseSession = () =>{
     mainSessionLength.innerHTML = mainSessionValue += 1;
 } 
 
+// Reset button
 
+const reset = () =>{
+    breakLength.innerHTML = 5;
+    sessionLength.innerHTML = 5;
+    mainSessionLength.innerHTML = 5;
+}
 
 
 
