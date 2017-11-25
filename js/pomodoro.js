@@ -32,11 +32,8 @@ const increaseSession = () =>{
 } 
 
 // Reset button
-
 const reset = () =>{
-    breakLength.innerHTML = 5;
-    sessionLength.innerHTML = 5;
-    mainSessionLength.innerHTML = 5;
+
 }
 
 
