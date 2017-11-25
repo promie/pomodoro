@@ -1,26 +1,39 @@
 
-/*
+// Decrease/Increase Break functionality
 
-Logic Plan
+const breakLength = document.getElementById('breakSlice');
+let breakValue = parseInt(breakLength.textContent);
+
+const decreaseBreak = () =>{
+    if(breakValue > 1){
+        breakLength.innerHTML = breakValue -= 1;
+    }
+}
+
+const increaseBreak = () =>{
+    breakLength.innerHTML = breakValue += 1;
+}
+
+// Decrease/Increase Session Length functionality
+
+const sessionLength = document.getElementById('sessionSlice');
+const mainSessionLength = document.getElementById('mainSessionSlice');
+let sessionValue = parseInt(sessionLength.textContent);
+let mainSessionValue = parseInt(mainSessionLength.textContent);
+
+const decreaseSession = () =>{
+    if(sessionValue > 1){
+        sessionLength.innerHTML = sessionValue -= 1;
+        mainSessionLength.innerHTML = mainSessionValue -= 1;
+    }
+}
+
+const increaseSession = () =>{
+    sessionLength.innerHTML = sessionValue += 1;
+    mainSessionLength.innerHTML = mainSessionValue += 1;
+} 
 
 
-- Hide some id's when the button is pressed
-
-Time Session
-- Session Time - with the subtract and add button when pressed the number increased
-- For testing purposes, set the number to anyone as a placeholder
-- Reset number back to the original number
-
-- Audio import
-
-
-Break Session
-- Minimum session time is 5 minutes
 
 
 
-
-
-
-
-*/

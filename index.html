@@ -39,22 +39,22 @@
                 <div id="options">
                     <div id="break" class="element">
                         <p>Break Length</p>
-                        <span id="bsm" class="sign"> - </span>
-                        <span id="breakSlice" class="slice"> 5 </span>
-                        <span id="bsp" class="sign"> + </span>
+                        <span id="bsm" class="sign" onclick="decreaseBreak()"> - </span>
+                        <span id="breakSlice" class="slice">5</span>
+                        <span id="bsp" class="sign" onclick="increaseBreak()"> + </span>
                     </div>
 
                     <div id="session" class="element">
                         <p>Session Length</p>
-                        <span id="ssm" class="sign"> - </span>
-                        <span id="sessionSlice" class="slice"> 5 </span>
-                        <span id="ssp" class="sign"> + </span>
+                        <span id="ssm" class="sign" onclick="decreaseSession()"> - </span>
+                        <span id="sessionSlice" class="slice">5</span>
+                        <span id="ssp" class="sign" onclick="increaseSession()"> + </span>
                     </div>
                 </div>
 
                 <div id="myCanvas">
                     <p>Session</p>
-                    <p>5</p>
+                    <p id="mainSessionSlice">5</p>
                 </div>
 
 
