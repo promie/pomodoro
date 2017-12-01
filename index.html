@@ -18,7 +18,10 @@
 	<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 	<!-- Font Awesome-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
-	<link rel="stylesheet" type="text/css" href="css/pomodoro.css">
+    <link rel="stylesheet" type="text/css" href="css/pomodoro.css">
+    <!--Buzzer Sound
+    <audio id="buzzer" src="https://notificationsounds.com/soundfiles/5878a7ab84fb43402106c575658472fa/file-sounds-723-rising-up.mp3"></audio>
+    -->
 
 </head>
 
@@ -39,16 +42,16 @@
                 <div id="options">
                     <div id="break" class="element">
                         <p>Break Length</p>
-                        <span id="bsm" class="sign" onclick="decreaseBreak()"> - </span>
+                        <span id="bsm" class="sign"> - </span>
                         <span id="breakSlice" class="slice">5</span>
-                        <span id="bsp" class="sign" onclick="increaseBreak()"> + </span>
+                        <span id="bsp" class="sign"> + </span>
                     </div>
 
                     <div id="session" class="element">
                         <p>Session Length</p>
-                        <span id="ssm" class="sign" onclick="decreaseSession()"> - </span>
+                        <span id="ssm" class="sign"> - </span>
                         <span id="sessionSlice" class="slice">5</span>
-                        <span id="ssp" class="sign" onclick="increaseSession()"> + </span>
+                        <span id="ssp" class="sign"> + </span>
                     </div>
                 </div>
 
@@ -64,10 +67,6 @@
         </div>
     </div>
     
-    
-
-
-
 		<!--jQuery-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!--jQuery UI-->
