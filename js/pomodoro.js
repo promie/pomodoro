@@ -1,24 +1,21 @@
 $(document).ready(function(){
-
+    
     $('#reset').hide();
-    $('#pause').hide();
 
-    const buzzer = $('#buzzer')[0];    
+    const buzzer = $('#buzzer')[0],
+        tickTok = $('#tickTok')[0];    
     let breakLength = parseInt($('#breakTime').html()),
         sessionLength = parseInt($('#sessionTime').html());
         
-    $('#play').on('click', function(){
+    $('#myCanvas').on('click', function(){
         let sessionCounter = setInterval(timer, 1000);
         sessionLength *= 60;
         breakLength *= 60;
-        
-
-        $(this).hide();
-        $('#pause').show();
-    
+            
         function timer() {
             $('#status').html('Session');
             sessionLength -= 1;
+            tickTok.play();
     
             if(sessionLength === 0){
                 buzzer.play();
@@ -36,11 +33,10 @@ $(document).ready(function(){
                 function breakTimer(){
                     $('#status').html('Break');
                     breakLength -= 1;
-                    
+                    tickTok.play();
 
                     if(breakLength === 0) {
                         buzzer.play();
-                        $('#pause').hide();
                         $('#reset').show();
 
                         for(let i=1; i<99999;i++){
