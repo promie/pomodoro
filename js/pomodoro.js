@@ -1,5 +1,7 @@
 $(document).ready(function(){
     
+    let paused = true;
+
     $('#reset').hide();
 
     const buzzer = $('#buzzer')[0],
@@ -8,12 +10,14 @@ $(document).ready(function(){
         sessionLength = parseInt($('#sessionTime').html());
         
     $('#myCanvas').on('click', function(){
+        paused = false;
+        $('#reset').hide();
         let sessionCounter = setInterval(timer, 1000);
         sessionLength *= 60;
         breakLength *= 60;
             
         function timer() {
-            $('#status').html('Session');
+            $('#status').html('SESSION');
             sessionLength -= 1;
             tickTok.play();
     
@@ -31,7 +35,7 @@ $(document).ready(function(){
                 }
     
                 function breakTimer(){
-                    $('#status').html('Break');
+                    $('#status').html('BREAK');
                     breakLength -= 1;
                     tickTok.play();
 
@@ -42,6 +46,7 @@ $(document).ready(function(){
                         for(let i=1; i<99999;i++){
                             window.clearInterval(i);
                         }
+                        paused = true;
                     }
     
                     $('#mainTime').html(breakLength);
@@ -56,35 +61,39 @@ $(document).ready(function(){
     });
     
     $('#breakMinus').on('click', function(){
-        if(breakLength > 1) {
+        if(breakLength > 1 && paused === true) {
             breakLength -= 1;
             $('#breakTime').html(breakLength);
-            $('#status').html('Break');
+            $('#status').html('BREAK');
             $('#mainTime').html(breakLength + ':00');
         }
     });
     
     $('#breakPlus').on('click', function(){
+        if(paused === true){
             breakLength += 1;
             $('#breakTime').html(breakLength);
-            $('#status').html('Break');
+            $('#status').html('BREAK');
             $('#mainTime').html(breakLength + ':00');
+        }
     });
     
     $('#sessionMinus').on('click', function(){
-        if(sessionLength > 1) {
+        if(sessionLength > 1 && paused === true) {
             sessionLength -= 1;
             $('#sessionTime').html(sessionLength);
-            $('#status').html('Session');
+            $('#status').html('SESSION');
             $('#mainTime').html(sessionLength + ':00');
         }
     });
     
     $('#sessionPlus').on('click', function(){
-        sessionLength += 1;
-        $('#sessionTime').html(sessionLength);
-        $('#status').html('Session');
-        $('#mainTime').html(sessionLength + ':00');
+        if(paused === true) {
+            sessionLength += 1;
+            $('#sessionTime').html(sessionLength);
+            $('#status').html('SESSION');
+            $('#mainTime').html(sessionLength + ':00');    
+        }
     });
 
     $('#reset').on('click', function(){

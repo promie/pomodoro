@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+
 body{
     margin: 5px;
     padding: 0px;
     background-color: black;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
+    font-family: 'Nova Square', cursive;
     text-align: center;
 }
 
 
 /*=====HEAD SECTION=====*/
 .github{
-    font-size: 35px;
+    font-size: 30px;
     text-decoration: none;
     color: white;
     margin-top: 10px;
@@ -25,10 +28,17 @@ body{
     text-decoration: none;
 }
 
+#author{
+    font-size: 12px;
+    margin-top: -10px;
+    margin-left: 95px;
+    margin-bottom: 40px;
+}
+
 /*=====MAIN SECTION=====*/
 #myCanvas{
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     padding-top: 65px;
     display: block;
     margin: auto;
