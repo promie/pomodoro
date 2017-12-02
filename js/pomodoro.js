@@ -11,6 +11,8 @@ $(document).ready(function(){
         let sessionCounter = setInterval(timer, 1000);
         sessionLength *= 60;
         breakLength *= 60;
+        
+
         $(this).hide();
         $('#pause').show();
     
@@ -34,11 +36,16 @@ $(document).ready(function(){
                 function breakTimer(){
                     $('#status').html('Break');
                     breakLength -= 1;
-    
+                    
+
                     if(breakLength === 0) {
-                        clearInterval(breakCounter);
                         buzzer.play();
+                        $('#pause').hide();
                         $('#reset').show();
+
+                        for(let i=1; i<99999;i++){
+                            window.clearInterval(i);
+                        }
                     }
     
                     $('#mainTime').html(breakLength);
