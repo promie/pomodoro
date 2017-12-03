@@ -3,7 +3,7 @@
 body{
     margin: 5px;
     padding: 0px;
-    background-color: black;
+    background-color: #EE5D4F;
     color: white;
     font-size: 16px;
     font-family: 'Nova Square', cursive;
@@ -38,8 +38,9 @@ body{
 #errorMessage {
 
     margin-top:10px;
-    font-size: 15px;
-    color: red;
+    font-size: 10px;
+    color: black;
+    font-weight: bold;
 
 }
 

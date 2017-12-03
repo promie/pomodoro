@@ -11,7 +11,7 @@ $(document).ready(function(){
         
     $('#myCanvas').on('click', function(){
         
-        
+
 
             $('#reset').hide();
             $('#errorMessage').hide();
@@ -99,7 +99,7 @@ $(document).ready(function(){
     });
     
     $('#sessionPlus').on('click', function(){
-        if(counter === true) {
+        if(pause === true) {
             sessionLength += 1;
             $('#errorMessage').hide();
             $('#sessionTime').html(sessionLength);
