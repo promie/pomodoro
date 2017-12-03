@@ -89,6 +89,7 @@ const playTickTok = () =>{
 const reset = () =>{
     if(pause) {
         init();
+        playElement.style.display = 'block';
     }
 }
 
