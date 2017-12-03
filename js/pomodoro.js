@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-
+    init();
 
     
         
@@ -9,18 +9,23 @@ $(document).ready(function(){
 let pause = true,
     pauseElement = document.getElementById('pause'),
     errorMessage = document.getElementById('errorMessage'),
-    breakLength = 5,
-    sessionLength = 10;
+    breakLength,
+    sessionLength;
 
 const buzzer = document.getElementById('buzzer'),
     tickTok = document.getElementById('tickTok');
 
- //Main Code
-pauseElement.style.display = 'none';
-errorMessage.style.display = 'none';
-document.getElementById('breakTime').innerHTML = 5;
-document.getElementById('sessionTime').innerHTML = 10;
-
+//Initializing function
+const init = () =>{
+    breakLength = 5;
+    sessionLength = 10;
+    pauseElement.style.display = 'none';
+    errorMessage.style.display = 'none';
+    document.getElementById('breakTime').innerHTML = 5;
+    document.getElementById('sessionTime').innerHTML = 10;
+    document.getElementById('status').innerHTML = 'SESSION';
+    document.getElementById('mainTime').innerHTML = `${sessionLength}:00`;
+}
 
 //Break Length Functions
 const breakMinus = () =>{
@@ -77,6 +82,11 @@ const playBuzzer = () =>{
 
 const playTickTok = () =>{
     tickTok.play();
+}
+
+//Refresh Function
+const reset = () =>{
+    init();
 }
 
 
