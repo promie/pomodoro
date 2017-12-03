@@ -110,9 +110,10 @@ const playButton = () =>{
     errorMessage.style.display = 'none';
     playElement.style.display = 'none';
     pauseElement.style.display = 'block';
-    sessionCounter = setInterval(timer, 1000);
     sessionLength *= 60;
     breakLength *= 60;
+    sessionCounter = setInterval(timer, 1000);
+
 }
 
 const pauseButton = () =>{
