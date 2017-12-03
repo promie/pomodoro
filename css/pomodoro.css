@@ -76,10 +76,11 @@ body{
     padding: 5px;
 }
 
-#reset{
+.bottomButton{
  padding-top: 30px;
  color: white;
  cursor: pointer;
+ font-size: 30px;
 }
 
 .formatButton{

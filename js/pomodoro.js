@@ -7,7 +7,7 @@ $(document).ready(function(){
 });
 
 let pause = true,
-    resetElement = document.getElementById('reset'),
+    pauseElement = document.getElementById('pause'),
     errorMessage = document.getElementById('errorMessage'),
     breakLength = 5,
     sessionLength = 10;
@@ -16,7 +16,7 @@ const buzzer = document.getElementById('buzzer'),
     tickTok = document.getElementById('tickTok');
 
  //Main Code
-resetElement.style.display = 'none';
+pauseElement.style.display = 'none';
 errorMessage.style.display = 'none';
 document.getElementById('breakTime').innerHTML = 5;
 document.getElementById('sessionTime').innerHTML = 10;
