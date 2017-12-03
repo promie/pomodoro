@@ -14,7 +14,8 @@ let pause = true,
     breakCounter;
 
 const buzzer = document.getElementById('buzzer'),
-    tickTok = document.getElementById('tickTok');
+    tickTok = document.getElementById('tickTok'),
+    errorSound = document.getElementById('errorSound');
 
 //Initializing function
 const init = () =>{
@@ -31,6 +32,7 @@ const init = () =>{
 //Break Length Functions
 const breakMinus = () =>{
     if(breakLength > 1 && pause){
+        playTickTok();
         errorMessage.style.display = 'none';
         breakLength -= 1;
         document.getElementById('breakTime').innerHTML = breakLength;
@@ -38,12 +40,14 @@ const breakMinus = () =>{
         document.getElementById('mainTime').innerHTML = `${breakLength}:00`;
     }else{
         errorMessage.style.display = 'block';
+        playError();
         document.getElementById('errorMessage').innerHTML = 'BREAK LENGTH CANNOT BE LESS THAN 1 MINUTE';
     }
 }
 
 const breakPlus = () =>{
     if(pause){
+        playTickTok();
         errorMessage.style.display = 'none';
         breakLength += 1;
         document.getElementById('breakTime').innerHTML = breakLength;
@@ -55,6 +59,7 @@ const breakPlus = () =>{
 //Session Length Functions
 const sessionMinus = () =>{
     if(sessionLength > 1 && pause) {
+        playTickTok();
         errorMessage.style.display = 'none';
         sessionLength -= 1;
         document.getElementById('sessionTime').innerHTML = sessionLength;
@@ -62,12 +67,14 @@ const sessionMinus = () =>{
         document.getElementById('mainTime').innerHTML = `${sessionLength}:00`;
     }else{
         errorMessage.style.display = 'block';
+        playError();
         document.getElementById('errorMessage').innerHTML = 'SESSION LENGTH CANNOT BE LESS THAN 1 MINUTE';
     }
 }
 
 const sessionPlus = () =>{
     if(pause) {
+        playTickTok();
         sessionLength += 1;
         errorMessage.style.display = 'none';
         document.getElementById('sessionTime').innerHTML = sessionLength;
@@ -83,6 +90,10 @@ const playBuzzer = () =>{
 
 const playTickTok = () =>{
     tickTok.play();
+}
+
+const playError = () =>{
+    errorSound.play();
 }
 
 //Refresh Function
@@ -105,15 +116,20 @@ const playButton = () =>{
 }
 
 const pauseButton = () =>{
+    pause = true;
     errorMessage.style.display = 'none';
     pauseElement.style.display = 'none';
     playElement.style.display = 'block';
+
+    clearInterval(sessionCounter);
+    clearInterval(breakCounter);
+
 }
 
 const timer = () =>{
     document.getElementById('status').innerHTML = 'SESSION';
     sessionLength -= 1;
-    playTickTok();
+    
 
     if(sessionLength === 0) {
         playBuzzer();
@@ -133,8 +149,7 @@ const timer = () =>{
 const breakTimer = () =>{
     document.getElementById('status').innerHTML = 'BREAK';
     breakLength -= 1;
-    playTickTok();
-
+    
     if(breakLength === 0){
         playBuzzer();
         clearInterval(breakCounter);
