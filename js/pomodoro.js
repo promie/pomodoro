@@ -19,25 +19,25 @@ const buzzer = document.getElementById('buzzer'),
 
 //Initializing function
 const init = () =>{
-    breakLength = 5;
-    sessionLength = 10;
+    breakLength = 5 * 60;
+    sessionLength = 10 * 60;
     pauseElement.style.display = 'none';
     errorMessage.style.display = 'none';
-    document.getElementById('breakTime').innerHTML = 5;
-    document.getElementById('sessionTime').innerHTML = 10;
+    document.getElementById('breakTime').innerHTML = timeString(breakLength);
+    document.getElementById('sessionTime').innerHTML = timeString(sessionLength);
     document.getElementById('status').innerHTML = 'SESSION';
-    document.getElementById('mainTime').innerHTML = `${sessionLength}:00`;
+    document.getElementById('mainTime').innerHTML = timeString(sessionLength);
 }
 
 //Break Length Functions
 const breakMinus = () =>{
-    if(breakLength > 1 && pause){
+    if(breakLength > 60 && pause){
         playTickTok();
         errorMessage.style.display = 'none';
-        breakLength -= 1;
-        document.getElementById('breakTime').innerHTML = breakLength;
+        breakLength -= 60;
+        document.getElementById('breakTime').innerHTML = timeString(breakLength);
         document.getElementById('status').innerHTML = 'BREAK';
-        document.getElementById('mainTime').innerHTML = `${breakLength}:00`;
+        document.getElementById('mainTime').innerHTML = timeString(breakLength);
     }else{
         errorMessage.style.display = 'block';
         playError();
@@ -49,22 +49,22 @@ const breakPlus = () =>{
     if(pause){
         playTickTok();
         errorMessage.style.display = 'none';
-        breakLength += 1;
-        document.getElementById('breakTime').innerHTML = breakLength;
+        breakLength += 60;
+        document.getElementById('breakTime').innerHTML = timeString(breakLength);
         document.getElementById('status').innerHTML = 'BREAK';
-        document.getElementById('mainTime').innerHTML = `${breakLength}:00`;
+        document.getElementById('mainTime').innerHTML = timeString(breakLength);
     }
 }
 
 //Session Length Functions
 const sessionMinus = () =>{
-    if(sessionLength > 1 && pause) {
+    if(sessionLength > 60 && pause) {
         playTickTok();
         errorMessage.style.display = 'none';
-        sessionLength -= 1;
-        document.getElementById('sessionTime').innerHTML = sessionLength;
+        sessionLength -= 60;
+        document.getElementById('sessionTime').innerHTML = timeString(sessionLength);
         document.getElementById('status').innerHTML = 'SESSION';
-        document.getElementById('mainTime').innerHTML = `${sessionLength}:00`;
+        document.getElementById('mainTime').innerHTML = timeString(sessionLength);
     }else{
         errorMessage.style.display = 'block';
         playError();
@@ -75,11 +75,11 @@ const sessionMinus = () =>{
 const sessionPlus = () =>{
     if(pause) {
         playTickTok();
-        sessionLength += 1;
+        sessionLength += 60;
         errorMessage.style.display = 'none';
-        document.getElementById('sessionTime').innerHTML = sessionLength;
+        document.getElementById('sessionTime').innerHTML = timeString(sessionLength);
         document.getElementById('status').innerHTML = 'SESSION';
-        document.getElementById('mainTime').innerHTML = `${sessionLength}:00`;
+        document.getElementById('mainTime').innerHTML = timeString(sessionLength);
     }
 }
 
@@ -110,8 +110,6 @@ const playButton = () =>{
     errorMessage.style.display = 'none';
     playElement.style.display = 'none';
     pauseElement.style.display = 'block';
-    sessionLength *= 60;
-    breakLength *= 60;
     sessionCounter = setInterval(timer, 1000);
 
 }
@@ -164,4 +162,16 @@ const breakTimer = () =>{
     }else{
         document.getElementById('mainTime').innerHTML = `${Math.floor(breakLength / 60)}:0${breakLength % 60}`;
     }
+}
+
+const timeString = (time) =>{
+    let minutes = Math.floor(time/60),
+        seconds = time % 60;
+
+    if(seconds < 10) {
+    
+    seconds = `0${seconds}`;
+    return `${minutes}:${seconds}`; 
+    }
+
 }
