@@ -98,6 +98,9 @@ const playError = () =>{
 
 //Refresh Function
 const reset = () =>{
+
+    pause = true;
+
     if(pause) {
         init();
         playElement.style.display = 'block';
