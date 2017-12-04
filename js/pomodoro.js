@@ -123,6 +123,8 @@ const pauseButton = () =>{
     clearInterval(sessionCounter);
     clearInterval(breakCounter);
 
+    pause = false;
+
 }
 
 const timer = () =>{
